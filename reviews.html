@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відгуки - Ресторан "Смакота"</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif; /* Змінено шрифт на Verdana */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px; /* Збільшено розмір шрифту для навігаційних посилань */
+            padding: 12px 25px; /* Збільшено відступи */
+            background-color: #e74c3c;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #c0392b;
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 40px; /* Збільшено розмір шрифту заголовка */
+            color: #2c3e50;
+        }
+
+        .review {
+            background-color: white;
+            padding: 25px; /* Збільшено відступи */
+            margin-bottom: 30px; /* Збільшено відступ між відгуками */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 25px; /* Збільшено відстань між зображенням та текстом */
+            text-align: left;
+        }
+
+        .review img {
+            border-radius: 50%;
+            width: 100px; /* Збільшено розмір зображення */
+            height: 100px; /* Збільшено розмір зображення */
+            object-fit: cover;
+        }
+
+        .review h3 {
+            margin: 0;
+            color: #e74c3c;
+            font-size: 24px; /* Збільшено розмір шрифту для імені */
+        }
+
+        .review p {
+            color: #7f8c8d;
+            margin: 0;
+            padding-top: 10px; /* Збільшено відступ для розділення тексту */
+            font-size: 20px; /* Збільшено розмір шрифту для тексту відгуків */
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px; /* Збільшено розмір шрифту в футері */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ресторан "Смакота"</h1>
+    <nav>
+        <a href="restoran.html">Головна</a>
+        <a href="menu.html">Меню</a>
+        <a href="reviews.html">Відгуки</a>
+        <a href="contact.html">Контакти</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Відгуки наших гостей</h2>
+    <div class="review">
+        <img src="images/oleksandr.jpg" alt="Олександр">
+        <div>
+            <h3>Олександр</h3>
+            <p>Чудова атмосфера та смачні страви. Дуже сподобалося!</p>
+        </div>
+    </div>
+    <div class="review">
+        <img src="images/maria.jpg" alt="Марія">
+        <div>
+            <h3>Марія</h3>
+            <p>Ресторан дуже затишний, а персонал привітний. Обов’язково повернуся!</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Ресторан "Смакота". Всі права захищені.<br>Розробив Русак - Козак</p>
+</footer>
+
+</body>
+</html>

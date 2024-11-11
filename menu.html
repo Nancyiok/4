@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Ресторан "Смакота"</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #c0392b;
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+            font-family: 'Verdana', sans-serif; /* Змінено шрифт на Verdana */
+        }
+
+        h2 {
+            font-size: 40px; /* Збільшено розмір шрифту заголовка */
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 20px; /* Збільшено відступи в клітинках таблиці */
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-size: 20px; /* Збільшено розмір шрифту заголовків таблиці */
+        }
+
+        td {
+            font-size: 18px; /* Збільшено розмір шрифту клітинок таблиці */
+        }
+
+        td img {
+            width: 120px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .order-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 25px; /* Збільшено відступи в кнопках */
+            font-size: 20px; /* Збільшено розмір шрифту кнопок */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .order-button:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Інтерактивність */
+        .order-button {
+            position: relative;
+        }
+
+        .order-button::before {
+            content: '🛒';
+            position: absolute;
+            left: -30px; /* Зменшено відступ від лівого краю кнопки */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        td:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        td img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+
+        /* Стилі для модального вікна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+        .modal-body {
+            margin-top: 20px;
+        }
+
+        /* Стилі для форми */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"], input[type="tel"], textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 25px; /* Збільшено відступи в кнопках */
+            font-size: 20px; /* Збільшено розмір шрифту кнопок */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ресторан "Смакота"</h1>
+    <nav>
+        <a href="restoran.html">Головна</a>
+        <a href="menu.html">Меню</a>
+        <a href="reviews.html">Відгуки</a>
+        <a href="contact.html">Контакти</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Наше меню</h2>
+    <table>
+        <tr>
+            <th>Зображення</th>
+            <th>Назва</th>
+            <th>Опис</th>
+            <th>Ціна</th>
+            <th>Дія</th>
+        </tr>
+        <tr>
+            <td><img src="images/борщ.jpg" alt="Борщ"></td>
+            <td>Борщ</td>
+            <td>Традиційний український борщ з пампушками.</td>
+            <td>80 грн</td>
+            <td><button class="order-button" onclick="openModal('Борщ', '80 грн')">Замовити</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/вареники.jpg" alt="Вареники"></td>
+            <td>Вареники</td>
+            <td>Вареники з картоплею та грибами.</td>
+            <td>70 грн</td>
+            <td><button class="order-button" onclick="openModal('Вареники', '70 грн')">Замовити</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/торт.jpg" alt="Київський торт"></td>
+            <td>Київський торт</td>
+            <td>Солодкий десерт з горіхами та безе.</td>
+            <td>90 грн</td>
+            <td><button class="order-button" onclick="openModal('Київський торт', '90 грн')">Замовити</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/деруни.jpg" alt="Деруни"></td>
+            <td>Деруни</td>
+            <td>Деруни зі сметаною та грибним соусом.</td>
+            <td>65 грн</td>
+            <td><button class="order-button" onclick="openModal('Деруни', '65 грн')">Замовити</button></td>
+        </tr>
+        <tr>
+            <td><img src="images/салат.jpg" alt="Олів'є"></td>
+            <td>Салат Олів'є</td>
+            <td>Традиційний новорічний салат з овочами та майонезом.</td>
+            <td>55 грн</td>
+            <td><button class="order-button" onclick="openModal('Салат Олів\'є', '55 грн')">Замовити</button></td>
+        </tr>
+    </table>
+</section>
+
+<footer>
+    <p>© 2024 Ресторан "Смакота". Всі права захищені.</p>
+</footer>
+
+<!-- Модальне вікно -->
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 style="text-align: center;">Замовлення</h2>
+        <div class="modal-body">
+            <p style="text-align: center;"id="dishName"></p>
+            <p style="text-align: center;" id="dishPrice"></p>
+            <form id="orderForm">
+                <input type="text" name="name" placeholder="Ваше ім'я" 
+                       pattern="[A-Za-zА-Яа-яІіЇїЄєҐґ\s\-']{2,}" 
+                       title="Ім'я повинно містити щонайменше 2 літери та не містити цифр!" required>
+                
+                <input type="tel" name="phone" placeholder="Ваш номер телефону" 
+                       pattern="\+380\d{9}" 
+                       title="Номер телефону має бути в форматі +380XXXXXXXXX" required>
+                
+                <input type="text" name="address" placeholder="Адреса доставки" 
+                       pattern=".{5,}" 
+                       title="Адреса повинна містити щонайменше 5 символів" required>
+                
+                <textarea name="comment" placeholder="Коментар до замовлення" rows="4"></textarea>
+                <input type="submit" value="Підтвердити замовлення">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(dishName, dishPrice) {
+        document.getElementById('dishName').innerText = 'Страва: ' + dishName;
+        document.getElementById('dishPrice').innerText = 'Ціна: ' + dishPrice;
+        document.getElementById('orderModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('orderModal').style.display = 'none';
+    }
+
+    // Закриття модального вікна при кліку поза ним
+    window.onclick = function(event) {
+        const modal = document.getElementById('orderModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    };
+
+    // Додавання обробника події на форму
+    document.getElementById('orderForm').onsubmit = function(event) {
+        event.preventDefault();
+        alert('Ваше замовлення підтверджено!\nІм\'я: ' + this.name.value + '\nТелефон: ' + this.phone.value + '\nАдреса: ' + this.address.value + '\nКоментар: ' + this.comment.value);
+        closeModal();
+    };
+</script>
+
+</body>
+</html>
